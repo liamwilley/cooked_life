@@ -1,0 +1,4 @@
+<h1>Welcome to CookedLife! Here are our current recipes:</h1>
+<% @recipes.each do |recipe| %>
+  <h4><a href="#"><%= recipe.name %></a></h4>
+<% end %>
