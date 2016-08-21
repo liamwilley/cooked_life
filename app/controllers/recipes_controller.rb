@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
     @title = "CookedLife Recipes"
+    @recipes = Recipe.where(user_id: params[:user_id) || current_user.recipes
   end
 
   def new
-    recipe = Recipe.new(name: params[:name], user_id: to_be_current_user, ingredients: params[:ingredients], prep_time: params[:prep_time], description: params[:description])   
+    # recipe = Recipe.new(name: params[:name], user_id: to_be_current_user, ingredients: params[:ingredients], prep_time: params[:prep_time], description: params[:description])   
   end
 
   def create
@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
     recipe.ingredients = params[:ingredients]
     recipe.prep_time = params[:prep_time]
     recipe.description = params[:description]
-    recipe.assign_attributes({name: params[:name], ingredients: params[:ingredients], prep_time: params[:prep_time] description: params[:description]})
+    recipe.assign_attributes({name: params[:name], ingredients: params[:ingredients], prep_time: params[:prep_time], description: params[:description]})
     if recipe.save
       flash[:success] = "Recipe Updated!"
       redirect_to "/recipes/#{recipe.id}"
