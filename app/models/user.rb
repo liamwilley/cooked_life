@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :recipes
+  has_secure_password
 
 
   def full_name
