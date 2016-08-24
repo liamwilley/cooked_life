@@ -14,8 +14,14 @@ class RecipesController < ApplicationController
     ingredients = params[:ingredients]
     prep_time = params[:prep_time]
     description = params[:description]
-    recipe = Recipe.new(name: name, ingredients: ingredients, prep_time: prep_time, description: description)
-    recipe.save
+    @recipe = Recipe.new(name: name, ingredients: ingredients, prep_time: prep_time, description: description)
+    if @recipe.save
+      flash[:success] = "You have created a new recipe!"
+      redirect_to "/recipe/#{recipe.id}"
+    else
+      flash[:danger] = "Uh Oh! Your recipe did not get created!"
+      render :new
+    end
   end
   
   def show
@@ -27,7 +33,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    
+    @recipe = Recipe.find_by(:id params[:id])
   end
 
   def update
