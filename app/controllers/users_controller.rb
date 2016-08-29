@@ -10,11 +10,11 @@ class UsersController < ApplicationController
       )
     if user.save
       session[:user_id] = user.id
-      flash[:success] = "Successfully created an account!"
-      redirect_to "/users/#{user.id}"
+      flash[:success] = "Successfully created account!"
+      redirect_to '/'
     else
       flash[:warning] = "Account Not Created"
-      redirect_to '/users/signup'
+      redirect_to '/signup'
     end
   end
 
@@ -52,6 +52,4 @@ class UsersController < ApplicationController
     flash[:danger] = "User Deleted!"
     redirect_to "/recipes"
   end
-
-
 end

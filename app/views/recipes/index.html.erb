@@ -1,4 +1,40 @@
-<h1>Welcome to CookedLife! Here are our current recipes:</h1>
-<% @recipes.each do |recipe| %>
-  <h4><a href="#"><%= recipe.name %></a></h4>
+<h1>Welcome to CookedLife!</h1>
+<h2>Here are our current recipes:</h2>
+<% if current_user %>
+  <p><%= link_to "Add Recipe", "/recipes/new" %></p>
 <% end %>
+
+<table class="table table-hover">
+  <tr class="heading-bright">
+    <th>Name</th>
+    <th>Description</th>
+    <th>Ingredients</th>
+    <th>Prep Time</th>
+    <th>Instructions</th>
+  </tr>
+
+  <% @recipes.each do |recipe| %>
+  <tr>
+    <td><%= link_to recipe.name, "/recipes/#{recipe.id}" %></td>
+    <td><%= recipe.description %></td>
+    <td><%= recipe.ingredients %></td>
+    <td><%= recipe.prep_time %></td>
+    <td><%= recipe.instructions %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h1>Recipes!</h1>
+<% if current_user %>
+  <p><%= link_to "/recipes/new" %></p>
+<% end %>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4">
+      <p><%= recipe.name %></p>
+      <p><%= recipe.description %></p>
+      <p><%= recipe.ingredients %></p>
+      <p><%= recipe.prep_time %></p>
+    </div>
+  <% end %> 
+</div>

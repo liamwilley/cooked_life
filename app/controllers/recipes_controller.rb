@@ -2,22 +2,27 @@ class RecipesController < ApplicationController
 
   def index
     @title = "CookedLife Recipes"
-    @recipes = Recipe.where(user_id: params[:user_id) || current_user.recipes
+    if params[:user_id]
+      @recipes = Recipe.where(user_id: params[:user_id]) 
+    else
+      @recipes = current_user.recipes
+    end
   end
 
   def new
     # recipe = Recipe.new(name: params[:name], user_id: to_be_current_user, ingredients: params[:ingredients], prep_time: params[:prep_time], description: params[:description])   
   end
 
-  def create
+  def create   #add params for user id once user authentification is set.
     name = params[:name]
     ingredients = params[:ingredients]
     prep_time = params[:prep_time]
     description = params[:description]
-    @recipe = Recipe.new(name: name, ingredients: ingredients, prep_time: prep_time, description: description)
+    instructions = params[:instructions]
+    @recipe = Recipe.new(name: name, ingredients: ingredients, prep_time: prep_time, description: description, instructions: instructions)
     if @recipe.save
       flash[:success] = "You have created a new recipe!"
-      redirect_to "/recipe/#{recipe.id}"
+      redirect_to "/recipes/#{@recipe.id}"
     else
       flash[:danger] = "Uh Oh! Your recipe did not get created!"
       render :new
@@ -25,15 +30,15 @@ class RecipesController < ApplicationController
   end
   
   def show
-    if params[:id] == "random"
-      @recipe = Recipe.all.sample
-    else
+    # if params[:id] == "random"
+    #   @recipe = Recipe.all.sample
+    # else
       @recipe = Recipe.find_by(id: params[:id])
-    end        
+    # end        
   end
 
   def edit
-    @recipe = Recipe.find_by(:id params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
   end
 
   def update
