@@ -2,11 +2,20 @@ class RecipesController < ApplicationController
 
   def index
     @title = "CookedLife Recipes"
-    if params[:user_id]
-      @recipes = Recipe.where(user_id: params[:user_id]) 
+
+    if params[:filter] == "current_user"
+      @recipes = Recipe.where(user_id: current_user.id)
+    elsif params[:filter].to_i > 0
+      if Recipe.where(user_id: params[:filter].to_i)
+        @recipes = Recipe.where(user_id: params[:filter].to_i)
+      end
+    #enter similar params filter for individual ingredients - use the .include method so you can search for strings inside of a larger strings. also thank bejan for his help.
+      
     else
-      @recipes = current_user.recipes
+      @recipes = Recipe.all
     end
+
+
   end
 
   def new
@@ -19,7 +28,7 @@ class RecipesController < ApplicationController
     prep_time = params[:prep_time]
     description = params[:description]
     instructions = params[:instructions]
-    @recipe = Recipe.new(name: name, ingredients: ingredients, prep_time: prep_time, description: description, instructions: instructions)
+    @recipe = Recipe.new(name: name, user_id: current_user.id, ingredients: ingredients, prep_time: prep_time, description: description, instructions: instructions)
     if @recipe.save
       flash[:success] = "You have created a new recipe!"
       redirect_to "/recipes/#{@recipe.id}"
@@ -43,14 +52,14 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find_by(id: params[:id])
-    recipe.name = params[:name]
-    recipe.ingredients = params[:ingredients]
-    recipe.prep_time = params[:prep_time]
-    recipe.description = params[:description]
-    recipe.assign_attributes({name: params[:name], ingredients: params[:ingredients], prep_time: params[:prep_time], description: params[:description]})
-    if recipe.save
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.prep_time = params[:prep_time]
+    @recipe.description = params[:description]
+    @recipe.assign_attributes({name: params[:name], ingredients: params[:ingredients], prep_time: params[:prep_time], description: params[:description]})
+    if @recipe.save
       flash[:success] = "Recipe Updated!"
-      redirect_to "/recipes/#{recipe.id}"
+      redirect_to "/recipes/#{@recipe.id}"
     else
       flash[:danger] = "Recipe Not Updated"
       render :edit

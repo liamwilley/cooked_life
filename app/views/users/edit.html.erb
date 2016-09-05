@@ -11,15 +11,15 @@
   </div>
   <div>
   <%= label_tag :email %>
-  <%= text_field_tag :email %>
+  <%= text_field_tag :email "", type: "email"%>
   </div>
   <div>
   <%= label_tag :password %>
-  <%= text_field_tag :password %>
+  <%= text_field_tag :password "", type: "password" %>
   </div>
   <div>
-  <%= label_tag :confirm_password %>
-  <%= text_field_tag :confirm_password %>
+  <%= label_tag :password_confirmation %>
+  <%= text_field_tag :password_confirmation "", type: "password" %>
   </div>
   <%= submit_tag "Update User" %>
   </div>

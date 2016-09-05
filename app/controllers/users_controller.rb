@@ -18,7 +18,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+
+#Might not need this method. Only used if you want users to be able to see all other users - alphabetical
+  def index 
     @users = User.all
   end
 
@@ -30,10 +32,12 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
-  def edit
+  # only for used by admin or by user for personal account - add that feature to mvp - ask mark for help
+  def edit 
     @user = User.find_by(id: params[:id])
   end
 
+# only for used by admin or by user for personal account - add that feature to mvp - ask mark for help
   def update
     user = User.find_by(id: params[:id])
     user.assign_attributes({first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation]})
@@ -45,7 +49,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
+# only for used by admin or by user for personal account - add that feature to mvp - ask mark for help
   def destroy
     user = User.find_by(id:params[:id])
     user.delete

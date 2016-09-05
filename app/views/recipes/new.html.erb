@@ -6,6 +6,10 @@
     <%= text_field_tag :name %>
   </div>
   <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+  <div>
     <%= label_tag :ingredients %>
     <%= text_field_tag :ingredients %>
   </div>
@@ -14,17 +18,14 @@
     <%= text_field_tag :prep_time %>
   </div>
   <div>
-    <%= label_tag :description %>
-    <%= text_field_tag :description %>
-  </div>
-  <div>
     <%= label_tag :instructions %>
     <%= text_field_tag :instructions %>
   </div>
   <div>
     <%= submit_tag "Create Recipe!" %>
+    
   </div>
 
-<% end %>
 
+<% end %>
 

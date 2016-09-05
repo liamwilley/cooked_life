@@ -1,8 +1,7 @@
- <h1>User</h1>
+ <h1>Your cooked_life information:</h1>
 <ul>
   <li>First Name: <%= @user.first_name %></li>
   <li>Last Name: <%= @user.last_name %></li>
   <li>Email: <%= @user.email %></li>
-  <li>Password: <%= @user.password %></li>
-  <li>Password Confirmation: <%= @user.password_confirmation %></li>
+  <li>Your Recipes: <%= @user.recipes.all %></li>
 </ul>

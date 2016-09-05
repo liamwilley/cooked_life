@@ -9,13 +9,15 @@ Rails.application.routes.draw do
   delete '/recipes/:id', to: 'recipes#destroy'
 
   get '/', to: 'users#index'
-  get '/users/new', to: 'users#new'
+  post '/users', to: 'users#create'
+  get '/signup', to: 'users#new'
   get '/users/:id', to: 'users#show'
   get '/users/:id/edit', to: 'users#edit'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
 
-  get '/signup', to: 'users#new'
-  post '/users', to: 'users#create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
 end

@@ -1,30 +1,33 @@
-<h1>Edit Recipe</h1>
- <%= form_tag "/recipes/#{params[:id]}", method: :patch do %>
-   
-  <div>
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
-  </div>
-  <div>
-    <%= label_tag :ingredients %>
-    <%= text_field_tag :ingredients %>
-  </div>
-  <div>
-    <%= label_tag :prep_time %>
-    <%= text_field_tag :prep_time %>
-  </div>
-  <div>
-    <%= label_tag :description %>
-    <%= text_field_tag :description %>
-  </div>
-  <div>
-    <%= label_tag :instructions %>
-    <%= text_field_tag :instructions %>
-  </div>
-  <div>
-  <%= submit_tag "Update Recipe!" %>
-  </div>
- 
- <% end %> 
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h1>Update Recipe</h1>
+    <%= form_tag "/recipes/#{@recipe.id}", method: :patch do %>
+      
+      <div class="form-group">
+        <%= label_tag :name %>
+        <%= text_field_tag :name, @recipe.name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :description %>
+        <%= text_field_tag :description, @recipe.description, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :ingredients %>
+        <%= text_field_tag :ingredients, @recipe.ingredients, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :prep_time %>
+        <%= text_field_tag :prep_time, @recipe.prep_time, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :instructions %>
+        <%= text_field_tag :instructions, @recipe.instructions, class: "form-control" %>
+      </div>
+      <div>
+        <%= submit_tag "Update Recipe" %>
+      </div>
 
- 
+    <% end %>
+  </div>
+</div>
