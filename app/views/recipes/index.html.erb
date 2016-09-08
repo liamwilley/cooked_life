@@ -2,6 +2,8 @@
 <% if current_user %>
 <h2>I didn't choose the cooked life, the cooked life chose me.</h2>
   <p><%= link_to "Add Recipe", "/recipes/new" %></p>
+  <p><%= link_to "All Recipes", "/recipes" %></p>
+  <p><%= link_to "My Recipes", "/recipes?limit=user" %></p>
 <% end %>
 <table class="table">
   <tr>

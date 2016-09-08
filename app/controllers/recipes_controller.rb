@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(user_id: current_user.id)
     elsif params[:filter].to_i > 0
       if Recipe.where(user_id: params[:filter].to_i)
-        @recipes = Recipe.where(user_id: params[:filter].to_i)
+      @recipes = Recipe.where(user_id: params[:filter].to_i)
       end
     #enter similar params filter for individual ingredients - use the .include method so you can search for strings inside of a larger strings. also thank bejan for his help.
       
