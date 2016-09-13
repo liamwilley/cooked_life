@@ -3,5 +3,5 @@
   <li>First Name: <%= @user.first_name %></li>
   <li>Last Name: <%= @user.last_name %></li>
   <li>Email: <%= @user.email %></li>
-  <li>Your Recipes: <%= @user.recipes %></li>
+  <li><%= link_to "See User's Recipes", "/recipes?user=#{@user.id}"%></li>
 </ul>

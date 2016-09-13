@@ -14,4 +14,31 @@ class ApplicationController < ActionController::Base
   def human_date_and_time(date)
     date.strftime("%b %e, %l:%M %p")
   end
+
+  def search
+    
+    @users = User.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}", params[:user_search])
+
+    @recipes = Recipe.where("name LIKE ? OR description LIKE ? OR ingredients LIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", params[:user_search])
+
+    if @recipes.empty?
+      render "recipes/index"
+    elsif Recipe.where("name LIKE ? OR description LIKE ? OR ingredients LIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", params[:user_search])
+      @recipes
+    elsif        
+      if @users.any?
+        render "users/index"
+      else
+        flash[:warning]="Nothing here sir!"
+        redirect_to '/'
+      end
+    elsif User.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}", params[:user_search])
+      @users
+    else
+      flash[:warning]="We aint found shit!"
+    end
+  end
+
+
+
 end

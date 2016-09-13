@@ -15,6 +15,14 @@
         <%= message %>
       </div>
     <% end %>
+    <%= form_tag "/search", class: "navbar-form navbar-left", method: :post do %>
+      <div class="form-group">
+        <%= label_tag :user_search %>
+        <%= text_field_tag :user_search %>
+      </div>
+      <%= submit_tag "Search CookedLife" %>
+    <% end %>
+    
 
     <!-- put in links for signing up, out, in, etc. -->
     <%= yield %>

@@ -4,13 +4,9 @@ class RecipesController < ApplicationController
     @title = "CookedLife Recipes"
 
     if params[:filter] == "current_user"
-      @recipes = Recipe.where(user_id: current_user.id)
-    elsif params[:filter].to_i > 0
-      if Recipe.where(user_id: params[:filter].to_i)
-      @recipes = Recipe.where(user_id: params[:filter].to_i)
-      end
-    #enter similar params filter for individual ingredients - use the .include method so you can search for strings inside of a larger strings. also thank bejan for his help.
-      
+      @recipes = current_user.recipes
+    elsif params[:user]
+      @recipes = Recipe.where(user_id: params[:user])
     else
       @recipes = Recipe.all
     end
@@ -74,5 +70,10 @@ class RecipesController < ApplicationController
     redirect_to "/recipes"
   end
 
+  
+  def search
+   @recipes = Recipe.where("name LIKE ? OR description LIKE ? OR ingredients LIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", params[:user_search])
+    render :index
+  end
 
 end
