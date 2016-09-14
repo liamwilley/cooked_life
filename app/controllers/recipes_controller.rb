@@ -11,7 +11,6 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
     end
 
-
   end
 
   def new
@@ -62,18 +61,10 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def destroy
     recipe = Recipe.find_by(id: params[:id])
     recipe.delete
     flash[:danger] = "Recipe Deleted!"
     redirect_to "/recipes"
   end
-
-  
-  def search
-   @recipes = Recipe.where("name LIKE ? OR description LIKE ? OR ingredients LIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", params[:user_search])
-    render :index
-  end
-
 end

@@ -22,4 +22,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  get '/meals', to: 'meals#index'
+  get '/meals/new', to: 'meals#new'
+  post '/meals', to: 'meals#create'
+  get '/meals/:id', to: 'meals#show'
+  get '/meals/:id/edit', to: 'meals#edit'
+  patch '/meals/:id', to: 'meals#update'
+  delete '/meals/:id', to: 'meals#destroy'
+
 end

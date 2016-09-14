@@ -1,0 +1,50 @@
+<h1>Search Results: </h1>
+
+<% if @users.any? %>
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.full_name, "/users/#{user.id}" %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+
+  </table>
+<% end %>
+
+<% if @recipes.any? %>
+    
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Ingredients</th>
+      <th>Prep Time</th>
+      <th>Instructions</th>
+    </tr>
+
+
+    
+    <% if !@recipes.empty? %>
+      <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, "/recipes/#{recipe.id}" %></td>
+        <td><%= recipe.description %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.prep_time %></td>
+        <td><%= recipe.instructions %></td>
+        <td><%=link_to "Edit", "/recipes/#{recipe.id}/edit" %></td>
+        <td><%=link_to "Delete", "/recipes/#{recipe.id}", method: :delete %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      <p>No information was passed through.</p>
+    <% end %>
+  </table>
+<% end %> 
