@@ -1,0 +1,30 @@
+<h1>Your Search Results: </h1>
+
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Ingredients</th>
+    <th>Prep Time</th>
+    <th>Instructions</th>
+  </tr>
+  <% if @recipes  %>
+    <%= @recipes.each do |recipe| %>
+    <tr>
+      <td><%= link_to recipe.name, "/recipes/#{recipe.id}" %></td>
+      <td><%= recipe.description %></td>
+      <td><%= recipe.ingredients %></td>
+      <td><%= recipe.prep_time %></td>
+      <td><%= recipe.instructions %></td>
+    </tr>
+    <% end %>
+  <% elsif @users %>
+    <%= @users.each do |user| %>
+    <tr>
+      <td></td> #write in code for displaying user info
+    </tr>
+  <%else%>
+    <p>Alas boyo nothing was found!</p>
+
+</table>
