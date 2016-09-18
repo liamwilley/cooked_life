@@ -1,29 +1,25 @@
 <div ng-app="app">
   <div ng-controller="recipeCtrl" ng-init="setup()">
-  Add a new recipe for your meal!: <input ng-model="nameFilter">
-    <ul>
-      <li ng-repeat="recipe in recipes" >
-        <button ng-click="addRecipe(newName, newDescription, newIngredients, newPrepTime, newInstructions)"> Add Recipe</button>
-      </li>
-    </ul>
-    <div>
-      Name: <input ng-model="newName">
-    </div>
-    <div>
-      Description: <input ng-model="newDescription">
-    </div>
-    <div>
-      Ingredients: <input ng-model="newIngredients">
-    </div>
-    <div>
-      Prep Time: <input ng-model="newPrepTime">
-    </div>
-    <div>
-      Instructions: <input ng-model="newInstructions">
-    </div>
-    <div>
-      <button ng-click="addRecipe(newName, newDescription, newIngredients, newPrepTime, newInstructions)">Add Recipe</button>
-    </div>
+  Meal Name: <input ng-model="mealName"><button ng-click="creatMeal(mealName)">Create Meal!</button>
+    
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Ingredients</th>
+        <th>Prep Time</th>
+        <th>Add Recipe</th>
+      </tr>
+      <tr ng-repeat="recipe in recipes" >
+        
+        <td>{{recipe.name}}</td>
+        <td>{{recipe.description}}</td>
+        <td>{{recipe.ingredients}}</td>
+        <td>{{recipe.prep_time}}</td>
+        <td><button ng-click="addRecipe(recipe)">Add</button></td>
+      </tr>
+    </table>
+   
   </div>
 </div>
 

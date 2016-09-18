@@ -12,18 +12,11 @@
       $scope.recipes;
     }
 
-    $scope.addRecipe = function(newName, newDescription, newIngredients, newPrepTime, newInstructions) {
-      var newRecipe = {
-        name: newName,
-        description: newDescription,
-        ingredients: newIngredients,
-        prepTime: newPrepTime,
-        instructions: newInstructions
-      };
-      $http.post("/api/v1/recipes.json", recipe).then(function(response) {
-        $scope.recipes.push(response.data)
-      });
-    }
+   $scope.createMeal = function(mealName) {
+    $http.post('/api/v1/meals.json', {mealName: mealName}).then(function(response) {
+      $scope
+    });
+   }
 
 
   //delete recipe button incase you add wrong recipe
