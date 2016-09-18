@@ -4,6 +4,7 @@
   <p><%= link_to "Add Recipe", "/recipes/new" %></p>
   <p><%= link_to "All Recipes", "/recipes" %></p>
   <p><%= link_to "My Recipes", "/recipes?filter=current_user" %></p>
+  <p><%= link_to "My Information", "/users/#{current_user.id}" %></p>
 <% end %>
 <table class="table">
   <tr>

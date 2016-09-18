@@ -1,4 +1,5 @@
 <%= link_to "To current user's recipes", "/users/#{current_user.id}" %>
+<% if @recipe %>
 <ul>
   <li>User: <%= @recipe.user.full_name %></li>
   <li>Recipe Name: <%= @recipe.name %></li>
@@ -10,3 +11,7 @@
     </ul>
   <li>Prep Time: <%= @recipe.prep_time %></li>
 </ul>
+<% end %>
+
+<p><%= link_to "Add Recipe", "/recipes/new" %></p>
+

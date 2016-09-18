@@ -30,4 +30,12 @@ Rails.application.routes.draw do
   patch '/meals/:id', to: 'meals#update'
   delete '/meals/:id', to: 'meals#destroy'
 
+  namespace :api do
+    namespace :v1 do
+      get '/recipes', to: 'recipes#index'
+      post '/recipes', to: 'recipes#create'
+    end
+  end
+
+
 end
