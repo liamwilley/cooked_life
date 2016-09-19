@@ -18,7 +18,26 @@ User: <%= current_user.id %>
         <td>{{recipe.description}}</td>
         <td>{{recipe.ingredients}}</td>
         <td>{{recipe.prep_time}}</td>
-        <td><button ng-click="addRecipe(recipe)">Add</button></td>
+        <td><input type="checkbox" ng-checked="false" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
+      </tr>
+    </table>
+
+    <h2>Recipes Added to Meal</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Ingredients</th>
+        <th>Prep Time</th>
+        <th>Add Recipe</th>
+      </tr>
+      <tr ng-repeat="recipe in recipes" ng-if="recipe.added" >
+        
+        <td>{{recipe.name}}</td>
+        <td>{{recipe.description}}</td>
+        <td>{{recipe.ingredients}}</td>
+        <td>{{recipe.prep_time}}</td>
+        <td><a ng-click="deleteRecipe(recipe)">Remove</a></td>
       </tr>
     </table>
    

@@ -19,11 +19,21 @@
     });
    }
 
-   $scope.addRecipe = function(recipe) {
-    console.log(recipe);
-    $http.post('/api/v1/meal_recipes.json', {mealId: $scope.meal.id, recipeId: recipe.id}).then(function(response) {
+   $scope.toggleRecipe = function(recipe, toggle) {
+    console.log(toggle);
 
-    });
+    if (toggle == true) {
+      $http.post('/api/v1/meal_recipes.json', {mealId: $scope.meal.id, recipeId: recipe.id}).then(function(response) {
+        recipe.added = true;
+      });
+    }
+    else {
+      console.log($scope.meal.id, recipe.id);
+      $http.delete('/api/v1/meal_recipes/' + $scope.meal.id + '/' + recipe.id + '.json').then(function(response) {
+        recipe.added = false;
+      });
+    }
+
    }
 
 

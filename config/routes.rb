@@ -38,6 +38,8 @@ Rails.application.routes.draw do
       post '/meals', to: 'meals#create'
 
       post '/meal_recipes', to: 'meal_recipes#create'
+      get '/meal_recipes/:id', to: 'meal_recipes#show'
+      delete '/meal_recipes/:mealId/:recipeId', to: 'meal_recipes#destroy'
     end
   end
 
