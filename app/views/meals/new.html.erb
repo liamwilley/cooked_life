@@ -37,9 +37,8 @@ User: <%= current_user.id %>
         <td>{{recipe.description}}</td>
         <td>{{recipe.ingredients}}</td>
         <td>{{recipe.prep_time}}</td>
-        <td><a ng-click="deleteRecipe(recipe)">Remove</a></td>
+        <td><input type="checkbox" ng-checked="true" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
       </tr>
-    </table>
-   
+    </table>s
   </div>
 </div>

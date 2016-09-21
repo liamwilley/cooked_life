@@ -33,8 +33,7 @@
         recipe.added = false;
       });
     }
-
-   }
+ }
 
 
   //delete recipe button incase you add wrong recipe
