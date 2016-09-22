@@ -5,21 +5,11 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 <body id="page-top" class="modern">
 
-<!-- Header -->
-    <header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
-        <div class="intro-content">
-        <%= image_tag "people/profile.png", :class => "img-centered"%>
-             <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
-        </div>
-        <div class="scroll-down">
-            <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
-        </div>
-    </header>
+
     <!-- Navigation -->
     <!-- NOTE: .navbar-default and .navbar-inverse are both supported with this theme. -->
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
@@ -40,13 +30,13 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#values">Users</a> <!-- make into users -->
+                        <a href="/users/all">Users</a> <!-- make into users -->
                     </li>
                     <li>
-                        <a class="page-scroll" href="#people">Recipes</a> <!-- make into recipes -->
+                        <a href="/recipes/index">Recipes</a> <!-- make into recipes -->
                     </li>
                     <li>
-                        <a class="page-scroll" href="#press">Meals</a> <!-- make into meals -->
+                        <a href="/meals/index">Meals</a> <!-- make into meals -->
                     </li>
                  <!--    <li>
                         <a class="page-scroll" href="#hours">Hours</a> 
@@ -59,10 +49,11 @@
         </div>
     </nav>
 
+
     
-    <div class="purpleHippo">
+
       <%= yield %>
-    </div>
+
 
     <!-- Footer -->
     <footer class="footer" style="background-image: url(<%=image_path 'backgrounds/bg-footer.jpg'%>)"">
@@ -105,5 +96,6 @@
 
 
 </body>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>
     

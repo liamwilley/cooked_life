@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
- post '/search', to: 'application#search'
+  post '/search', to: 'application#search'
+  get '/', to: 'users#index'
+
+  get '/users/all', to: 'users#all'
+  post '/users', to: 'users#create'
+  get '/signup', to: 'users#new'
+  get '/users/:id', to: 'users#show'
+  get '/users/:id/edit', to: 'users#edit'
+  patch '/users/:id', to: 'users#update'
+  delete '/users/:id', to: 'users#destroy'
 
   get '/recipes', to: 'recipes#index'
   get '/recipes/new', to: 'recipes#new'
@@ -9,14 +18,6 @@ Rails.application.routes.draw do
   get '/recipes/:id/edit', to: 'recipes#edit'
   patch '/recipes/:id', to: 'recipes#update'
   delete '/recipes/:id', to: 'recipes#destroy'
-
-  get '/', to: 'users#index'
-  post '/users', to: 'users#create'
-  get '/signup', to: 'users#new'
-  get '/users/:id', to: 'users#show'
-  get '/users/:id/edit', to: 'users#edit'
-  patch '/users/:id', to: 'users#update'
-  delete '/users/:id', to: 'users#destroy'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

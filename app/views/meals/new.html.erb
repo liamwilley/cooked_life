@@ -12,7 +12,7 @@ User: <%= current_user.id %>
         <th>Prep Time</th>
         <th>Add Recipe</th>
       </tr>
-      <tr ng-repeat="recipe in recipes" >
+      <tr ng-repeat="recipe in recipes" ng-if="!recipe.added" >
         
         <td>{{recipe.name}}</td>
         <td>{{recipe.description}}</td>
@@ -39,6 +39,7 @@ User: <%= current_user.id %>
         <td>{{recipe.prep_time}}</td>
         <td><input type="checkbox" ng-checked="true" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
       </tr>
-    </table>s
+      <a ng-if="meal" href="/meals/{{meal.id}}"><button>Save Meal!</button></a>
+    </table>
   </div>
 </div>

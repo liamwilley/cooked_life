@@ -12,11 +12,12 @@ class Api::V1::MealRecipesController < ApplicationController
   end
 
   def destroy
-    puts '$' * 1000
     puts params
     meal_recipe = MealRecipe.where(meal_id: params[:mealId], recipe_id: params[:recipeId])
     meal_recipe.first.destroy! #destroyed muthafucka
+    render json: meal_recipe
   end
 
+  
   
 end

@@ -1,0 +1,29 @@
+<header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
+        <div class="intro-content">
+        <%= image_tag "people/profile.png", :class => "img-centered"%>
+             <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
+        </div>
+        <div class="scroll-down">
+            <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
+        </div>
+    </header>
+<h1>Users</h1>
+<table class="table">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </tr>
+  <% if !@users.empty? %>
+    <tr> 
+      <% @users.each do |user| %>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <% end %>
+    <% else %>
+      <td>No information passed through</td>
+    <% end %>
+    </tr>
+</table>
+

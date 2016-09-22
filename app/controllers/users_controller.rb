@@ -21,6 +21,10 @@ class UsersController < ApplicationController
 
 #Might not need this method. Only used if you want users to be able to see all other users - alphabetical
   def index 
+    
+  end
+
+  def all
     @users = User.all
   end
 
