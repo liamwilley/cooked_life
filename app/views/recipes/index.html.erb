@@ -1,12 +1,20 @@
 
+<header style="background-image: url(<%=image_path 'backgrounds/bg-pricing.jpg'%>)">
+        <div class="intro-content">
+        <%= image_tag "people/profile.png", :class => "img-centered"%>
+             <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
+        </div>
+        <div class="scroll-down">
+            <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
+        </div>
+    </header>
 
 <h1>Cooked Life</h1>
 <% if current_user %>
 <h2>I didn't choose the cooked life, the cooked life chose me.</h2>
-  <p><%= link_to "Add Recipe", "/recipes/new" %></p>
-  <p><%= link_to "All Recipes", "/recipes" %></p>
   <p><%= link_to "My Recipes", "/recipes?filter=current_user" %></p>
-  <p><%= link_to "My Information", "/users/#{current_user.id}" %></p>
+  <p><%= link_to "All Recipes", "/recipes" %></p>
+  <p><%= link_to "Add Recipe", "/recipes/new" %></p>
 <% end %>
 <table class="table">
   <tr>

@@ -8,6 +8,7 @@
         </div>
     </header>
 <h1>Users</h1>
+<p><%= link_to "My Information", "/users/#{current_user.id}" %></p>
 <table class="table">
   <tr>
     <th>First Name</th>
@@ -15,15 +16,15 @@
     <th>Email</th>
   </tr>
   <% if !@users.empty? %>
-    <tr> 
       <% @users.each do |user| %>
+    <tr> 
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.email %></td>
       <% end %>
     <% else %>
       <td>No information passed through</td>
-    <% end %>
     </tr>
+    <% end %>
 </table>
 
