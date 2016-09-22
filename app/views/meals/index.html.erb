@@ -1,1 +1,11 @@
-
+<table>
+    <tr>
+        <th>Meal Name</th>
+        <th>Recipe Author</th>
+    </tr>
+      <% @meals.each do |meal| %>    
+        <tr>
+            <td><%= meal.name %></td>
+            <td><%= meal.user.full_name %></td>
+      <% end %>
+</table>
