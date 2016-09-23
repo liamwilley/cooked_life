@@ -1,13 +1,15 @@
     <!-- Header -->
     <header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
         <div class="intro-content">
-        <%= image_tag "people/profile.png", :class => "img-centered"%>
+        <!--<%= image_tag "people/profile.png", :class => "img-centered"%>-->
              <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
         </div>
         <div class="scroll-down">
             <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
         </div>
     </header>
+    <!-- Block Button Call to Action -->
+    <a href="/signup" class="btn btn-block btn-full-width">Sign Up Now!</a>
     <!-- Services Section -->
     <section id="values" class="services">
         <div class="container">
@@ -97,6 +99,22 @@
                 </div>
             </div>
         </div>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-phone"></i> Call</h4>
+                    <p>202-550-2000</p>
+                </div>
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-map-marker"></i> Visit</h4>
+                    <p>The Internet
+                        <br>World Wide</p>
+                </div>
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-envelope"></i> Email</h4>
+                    <p><a href="mailto:mail@example.com">cookedLife.help@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </aside>
-    <!-- Block Button Call to Action -->
-    <a href="/signup" class="btn btn-block btn-full-width">Sign Up Now!</a>

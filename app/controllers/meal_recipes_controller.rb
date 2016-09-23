@@ -9,4 +9,9 @@ class MealRecipesController < ApplicationController
     end
   end
 
+  def show
+    @meal_recipe = MealRecipe.find_by(meal_id: params[:meal_id])
+  end
+
+
 end
