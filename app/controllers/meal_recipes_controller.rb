@@ -1,5 +1,5 @@
 class MealRecipesController < ApplicationController
-
+before_action :user_logged_in?
   def create
     meal_recipe = MealRecipe.new(meal_id: params[:meal_id], recipe_id: params[:recipe_id])
     if meal_recipe.save

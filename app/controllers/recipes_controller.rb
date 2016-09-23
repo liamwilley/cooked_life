@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+before_action :user_logged_in?
 
   def index
     @title = "CookedLife Recipes"
@@ -34,11 +35,11 @@ class RecipesController < ApplicationController
   end
   
   def show
-    # if params[:id] == "random"
-    #   @recipe = Recipe.all.sample
-    # else
+    if params[:id] == "random"
+      @recipe = Recipe.all.sample
+    else
       @recipe = Recipe.find_by(id: params[:id])
-    # end        
+    end        
   end
 
   def edit

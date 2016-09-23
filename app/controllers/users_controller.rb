@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
-  def create
+before_action :user_logged_in?, except: [:new]
+  def create 
     user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
@@ -34,7 +34,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    if params[:id] == "random"
+      @user = User.all.sample
+    else
+      @user = User.find_by(id: params[:id])
+    end
   end
 
   # only for used by admin or by user for personal account - add that feature to mvp - ask mark for help

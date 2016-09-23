@@ -1,12 +1,21 @@
+<header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
+    <div class="intro-content">
+        <!--<%= image_tag "people/profile.png", :class => "img-centered"%>-->
+        <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
+    </div>
+</header>
+
 <table>
     <tr>
         <th>Meal Name</th>
         <th>Recipe Author</th>
+        <th>See Meal!</th>
     </tr>
       <% @meals.each do |meal| %>    
         <tr>
             <td><%= meal.name %></td>
             <td><%= meal.user.full_name %></td>
+            <td><%= link_to "See Meal", "/meals/#{meal.id}" %></td>
         </tr>
       <% end %>
-</table>
+</table>    

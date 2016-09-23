@@ -25,4 +25,12 @@ class ApplicationController < ActionController::Base
 
     render "users/search"
   end
+
+  def user_logged_in?
+    if current_user
+      #do nothing
+    else
+      redirect_to '/login'
+    end
+  end
 end

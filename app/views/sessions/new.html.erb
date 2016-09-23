@@ -1,24 +1,41 @@
     <!-- Header -->
     <header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
-        <div class="intro-content">
+       <!--  <div class="intro-content">
         <%= image_tag "people/profile.png", :class => "img-centered"%>
-             <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
+             <img src="img/culinary/profile.png" class="img-responsive img-centered" alt="">
+        </div> -->
+    <section id="login">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-12 wow fadeIn">
+                    <h2>Login Or Sign Up</h2>
+                    <hr class="colored">
+                    <p>At CookedLife we strive to inspire culinary innovation whilest simaltaneously providing an easy to use platform for the Chef inside us all.</p>
+                </div>
+            </div>
+            <div class="row content-row">
+                <div class="col-md-4 wow fadeIn" data-wow-delay=".2s">
+                    <div class="media">
+                        <div class="media-body" class="pull-left">
+                          <h1>Login</h1>
+                          <%= form_tag '/login', method: :post do %>
+                          <div>
+                            <%= label_tag :email %>
+                            <%= text_field_tag :email %>
+                          </div>
+                          <div>
+                            <%= label_tag :password %>
+                            <%= password_field_tag :password %>
+                          </div>
+                          <%= submit_tag "Submit" %>
+                          <% end %>
+                        </div>
+                        <div class="pull-right">
+                          <h1><button><%= link_to "Sign Up!", "/signup" %></button></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="scroll-down">
-            <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
-        </div>
+    </section>
     </header>
-
-
-<h1>Login</h1>
-<%= form_tag '/login', method: :post do %>
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag "Submit" %>
-<% end %>
