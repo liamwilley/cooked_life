@@ -16,9 +16,12 @@ class ApplicationController < ActionController::Base
 
   def search
     
-    @users = User.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}", params[:user_search])
+    # search = params[:user_search].split(" ")
 
-    @recipes = Recipe.where("name ILIKE ? OR description ILIKE ? OR ingredients ILIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", params[:user_search])
+
+    @users = User.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR full_name ILIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", "%#{params[:user_search]}%", "%#{params[:user_search]}%")
+
+    @recipes = Recipe.where("name ILIKE ? OR description ILIKE ? OR ingredients ILIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", "%#{params[:user_search]}%")
 
     render "users/search"
   end
