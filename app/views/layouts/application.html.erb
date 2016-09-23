@@ -40,7 +40,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if current_user %>
-            <li><a href="#">Action</a></li>
+            <li><a href="/users/<%= current_user.id %>">My Account</a></li>
             <li><a href="#">Something Else</a></li>
             <li role="separator" class="divider"></li>
             <li> <%= link_to "Logout", "/logout", method: :delete %></li>
@@ -69,9 +69,6 @@
                     <li>
                         <a href="/meals">Meals</a> <!-- make into meals -->
                     </li>
-                    <li>
-                        <a href="/search">Search</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -98,7 +95,7 @@
                 </div>
                 <div class="col-md-4 contact-details">
                     <h4><i class="fa fa-envelope"></i> Email</h4>
-                    <p><a href="mailto:mail@example.com">wwilleymc@gmail.com</a>
+                    <p><a href="mailto:mail@example.com">cookedLife.help@gmail.com</a>
                     </p>
                 </div>
             </div>
