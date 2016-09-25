@@ -13,7 +13,7 @@
   <div ng-controller="recipeCtrl" ng-init="setup(<%= current_user.id %>)">
   Meal Name: <input ng-model="mealName"><button ng-click="createMeal(mealName)">Create Meal!</button>
     
-    <table ng-if="meal">
+    <table ng-if="meal" class="table table-hover">
       <tr>
         <th>Name</th>
         <th>Description</th>
@@ -32,7 +32,7 @@
     </table>
 
     <h2>Recipes Added to Meal</h2>
-    <table>
+    <table class="table table-hover">
       <tr>
         <th>Name</th>
         <th>Description</th>

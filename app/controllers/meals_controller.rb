@@ -19,8 +19,13 @@ before_action :user_logged_in?
   end
 
   def show
-    @meal = Meal.find_by(id: params[:id])
+    if params[:id] == "random"
+      @meal = Meal.all.sample
+    else
+      @meal = Meal.find_by(id: params[:id])
+    end        
   end
+  
 
   def destroy
 

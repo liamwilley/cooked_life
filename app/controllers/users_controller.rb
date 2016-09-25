@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :user_logged_in?, except: [:new]
+before_action :user_logged_in?, except: [:new, :create]
   def create 
     user = User.new(
       first_name: params[:first_name],

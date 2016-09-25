@@ -4,7 +4,7 @@
 <h1>MAKING SPACE</h1>
 
 
-<%= link_to "To current user's recipes", "/users/#{current_user.id}" %>
+<%= link_to "See my recipes", "/recipes?user=#{current_user.id}" %>
 <% if @recipe %>
 <ul>
   <li>User: <%= @recipe.user.full_name %></li>

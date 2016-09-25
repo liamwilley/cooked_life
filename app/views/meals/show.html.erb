@@ -1,33 +1,35 @@
+d<h1>MAKING SPACE</h1>
 <h1>MAKING SPACE</h1>
 <h1>MAKING SPACE</h1>
-<h1>MAKING SPACE</h1>
-
-<h2>Meal Name: <%= @meal.name %> </h2>
-<h2>Meal Author: <%=@meal.user.full_name %> </h2>
-<table>
-    <tr>
-        <th>Recipe Name </th>
-        <th>Recipe Author</th>
-        <th>Description</th>
-        <th>Ingredients</th>
-        <th>Prep Time</th>
-        <th>Instructions</th>
-        <th>See Recipe's Page</th>
-        
-    </tr>
-    <% @meal.recipes.each do |recipe| %>
-    <tr>
-        <!-- <button type="button" class="" ></button> -->
-        <li>Recipe Name: <%= recipe.name %></li>
-        <li>User: <%= recipe.user.full_name %></li>
-        <li>Description: <%= recipe.description %></li>
-        <li>Prep Time: <%= recipe.prep_time %></li>
-        <li>Instructions: <%= recipe.instructions %></li>
-        <ul>Ingredients: 
-            <%= recipe.ingredients %>
-        </ul>
-        <li>Prep Time: <%= recipe.prep_time %></li>
-        <li> </li>
-    </tr>
-    <% end %>
-</table>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h2>Meal Name: <%= @meal.name %> </h2>
+    <h2>Meal Author: <%=@meal.user.full_name %> </h2>
+    <table class="table table-hover">
+        <tr>
+            <th>Recipe Name </th>
+            <th>Recipe Author</th>
+            <th>Description</th>
+            <th>Ingredients</th>
+            <th>Prep Time</th>
+            <th>Instructions</th>
+            <th>See Recipe's Page</th>
+            
+        </tr>
+        <% @meal.recipes.each do |recipe| %>
+        <tr>
+            <!-- <button type="button" class="" ></button> -->
+            <td>Recipe Name: <%= recipe.name %></td>
+            <td>User: <%= recipe.user.full_name %></td>
+            <td>Description: <%= recipe.description %></td>
+            <td>Prep Time: <%= recipe.prep_time %></td>
+            <td>Instructions: <%= recipe.instructions %></td>
+            <td>Ingredients: <%= recipe.ingredients %></td>
+            <td>Prep Time: <%= recipe.prep_time %></td>
+            
+        </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
