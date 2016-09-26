@@ -8,12 +8,6 @@
 </head>
 
 <body id="page-top" class="modern">
-  <% flash.each do |name, message| %>
-  <div class="alert alert-<%= name %> alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= message %>
-  </div>
-  <% end %>
 
   <!-- Navigation -->
   <!-- NOTE: .navbar-default and .navbar-inverse are both supported with this theme. -->
@@ -94,11 +88,12 @@
         </li>
         <li>
           <%= form_tag "/search", class: "navbar-form navbar-left", method: :post do%> <!-- refactored to be pretty, ask marks q's about divs -->
-            <div class="form-group">
+            <div class="form-group dark-text">
               <%= label_tag :user_search, "" %>
               <%= text_field_tag :user_search %>
+              <%= submit_tag "Search", class: "dark-text btn btn-outline-dark main-search" %>
+
             </div>
-            <%= submit_tag "Search" %>
           <% end %>
         </li>
       </ul>
@@ -106,6 +101,12 @@
   </div>
 </nav>
 <div class="yield-container">
+ <% flash.each do |name, message| %>
+  <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= message %>
+  </div>
+  <% end %>
   <%= yield %>
 </div>
 

@@ -7,33 +7,40 @@
     <section id="login">
         <div class="container">
             <div class="row text-center">
-                <div class="col-lg-12 wow fadeIn">
+                <div class="col-lg-12 wow fadeIn white-text">
                     <h2>Login Or Sign Up</h2>
                     <hr class="colored">
                     <p>At CookedLife we strive to inspire culinary innovation whilest simaltaneously providing an easy to use platform for the Chef inside us all.</p>
                 </div>
             </div>
             <div class="row content-row">
-                <div class="col-md-4 wow fadeIn" data-wow-delay=".2s">
+                <div class="col-md-5 wow fadeIn white-text" data-wow-delay=".2s">
                     <div class="media">
-                        <div class="media-body" class="pull-left">
+                        <div class="media-body" class="pull-left dark-text">
                           <h1>Login</h1>
-                          <%= form_tag '/login', method: :post do %>
-                          <div>
-                            <%= label_tag :email %>
-                            <%= text_field_tag :email %>
+                          <%= form_tag '/login', class: "form-horizontal", method: :post do %>
+                          <div class="form-group">
+                            <%= label_tag :email, "Email", class: "col-sm-3 control-label"%>
+                            <div class="col-sm-9">
+                            <%= text_field_tag :email, "", class: "form-control dark-text"%>                              
+                            </div>
                           </div>
-                          <div>
-                            <%= label_tag :password %>
-                            <%= password_field_tag :password %>
+                          <div class="form-group">
+                            <%= label_tag :password, "Password", class: "col-sm-3 control-label"%>
+                            <div class="col-sm-9">
+                              <%= password_field_tag :password, "", class:"form-control dark-text" %>
+                            </div>
                           </div>
-                          <%= submit_tag "Submit" %>
+                          <%= submit_tag "Submit", class: "dark-text btn btn-outline-dark" %>
                           <% end %>
                         </div>
                         <!-- <div class="pull-right"> -->
-                           <a href="/signup" class="btn btn-block btn-full-width">Sign Up Now!</a>
                        <!--  </div> -->
                     </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                  <a href="/signup" class="btn btn-block btn-full-width">Sign Up Now!</a>
                 </div>
             </div>
         </div>
