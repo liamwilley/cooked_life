@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def search
     
     # search = params[:user_search].split(" ")
-
+    @meals = Meal.where("name ILIKE ?", "%#{params[:user_search]}%")
 
     @users = User.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR full_name ILIKE ?", "%#{params[:user_search]}%", "%#{params[:user_search]}%", "%#{params[:user_search]}%", "%#{params[:user_search]}%")
 

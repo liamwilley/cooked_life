@@ -1,22 +1,22 @@
-<h1>MAKING SPACE</h1>
-<h1>MAKING SPACE</h1>
-<h1>MAKING SPACE</h1>
-<h1>MAKING SPACE</h1>
-
-
-<%= link_to "See my recipes", "/recipes?user=#{current_user.id}" %>
-<% if @recipe %>
-<ul>
-  <li>User: <%= @recipe.user.full_name %></li>
-  <li>Recipe Name: <%= @recipe.name %></li>
-  <li>Description: <%= @recipe.description %></li>
-  <li>Instructions: <%= @recipe.instructions %></li>
-    <ul>Ingredients: 
-    <%= @recipe.ingredients %>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1>Recipe: </h1>
+    
+    <%= link_to "See my recipes", "/recipes?user=#{current_user.id}" %>
+    <% if @recipe %>
+    <ul>
+      <li>User: <%= @recipe.user.full_name %></li>
+      <li>Recipe Name: <%= @recipe.name %></li>
+      <li>Description: <%= @recipe.description %></li>
+      <li>Instructions: <%= @recipe.instructions %></li>
+        <ul>Ingredients: 
+        <%= @recipe.ingredients %>
+        </ul>
+      <li>Prep Time: <%= @recipe.prep_time %></li>
     </ul>
-  <li>Prep Time: <%= @recipe.prep_time %></li>
-</ul>
-<% end %>
+    <% end %>
 
-<p><%= link_to "Add Recipe", "/recipes/new" %></p>
-
+    <p><%= link_to "Add Recipe", "/recipes/new" %></p>
+  </div>
+</div>
