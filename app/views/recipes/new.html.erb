@@ -1,32 +1,40 @@
-<div class="row">
+<div class="row white-text" style="background-image: url(<%=image_path 'backgrounds/bg-footer.jpg'%>)">
   <div class="col-md-2"></div>
     <div class="col-md-8">
-      <h1>Let's make a recipe!</h1>
+      <h2 class="font_for_h2s">Let's make a recipe!</h2>
       <%= form_tag "/recipes", method: :post do %>
 
-        <div>
-          <%= label_tag :name %>
-          <%= text_field_tag :name %>
+        <div class="form-group">
+          <%= label_tag :Name %>
+          <%= text_field_tag :name, "", class: "form-control" %>
         </div>
-        <div>
+        <div class="form-group">
           <%= label_tag :description %>
-          <%= text_field_tag :description %>
+          <%= text_field_tag :description, "", class: "form-control" %>
         </div>
-        <div>
-          <%= label_tag :ingredients %>
-          <%= text_field_tag :ingredients %>
-        </div>
-        <div>
+        <div class="form-group">
           <%= label_tag :prep_time %>
-          <%= text_field_tag :prep_time %>
+          <%= text_field_tag :prep_time, "", class: "form-control" %>
         </div>
-        <div>
+        <div class="form-group text_area_tag">
+          <%= label_tag :ingredients %>
+          <%= text_area_tag :ingredients, "", class: "form-control" %>
+        </div>
+        <div class="form-group text_area_tag">
           <%= label_tag :instructions %>
-          <%= text_field_tag :instructions %>
+          <%= text_area_tag :instructions, "", class: "form-control" %>
         </div>
-        <div>
+        <div class="form-group dark-text">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-block btn-full-width ">Create Recipe!</button>
+          </div>
+          <div>
+            empty space
+          </div>
+        </div>
+        <!-- <div class="form-group dark-text">
           <%= submit_tag "Create Recipe!" %>
-        </div>
+        </div> -->
       <% end %>
   </div>
 </div>

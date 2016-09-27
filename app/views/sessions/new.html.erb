@@ -1,9 +1,5 @@
     <!-- Header -->
     <header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
-       <!--  <div class="intro-content">
-        <%= image_tag "people/profile.png", :class => "img-centered"%>
-             <img src="img/culinary/profile.png" class="img-responsive img-centered" alt="">
-        </div> -->
     <section id="login">
         <div class="container">
             <div class="row text-center">
@@ -31,7 +27,8 @@
                               <%= password_field_tag :password, "", class:"form-control dark-text" %>
                             </div>
                           </div>
-                          <%= submit_tag "Submit", class: "dark-text btn btn-outline-dark" %>
+                          <%= submit_tag "Submit", class: "btn btn-block btn-full-width" %>
+                          
                           <% end %>
                         </div>
                         <!-- <div class="pull-right"> -->

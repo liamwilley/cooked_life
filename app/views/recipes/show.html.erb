@@ -1,22 +1,36 @@
-<div class="row">
+<div class="row white-text" style="background-image: url(<%=image_path 'backgrounds/bg-pricing.jpg'%>)">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h1>Recipe: </h1>
-    
-    <%= link_to "See my recipes", "/recipes?user=#{current_user.id}" %>
-    <% if @recipe %>
-    <ul>
-      <li>User: <%= @recipe.user.full_name %></li>
-      <li>Recipe Name: <%= @recipe.name %></li>
-      <li>Description: <%= @recipe.description %></li>
-      <li>Instructions: <%= @recipe.instructions %></li>
-        <ul>Ingredients: 
-        <%= @recipe.ingredients %>
-        </ul>
-      <li>Prep Time: <%= @recipe.prep_time %></li>
-    </ul>
-    <% end %>
-
-    <p><%= link_to "Add Recipe", "/recipes/new" %></p>
+    <div class="my-image-margin"><h1>Recipe:</h1></div>
+      <p><%= link_to "See my recipes", "/recipes?user=#{current_user.id}" %></p> 
+      <p><%= link_to "Add Recipe", "/recipes/new" %></p>
+      <table class="table" style="width:100%"> 
+        <% if @recipe %>
+        <tr class="creator">
+          <th>Creator: </th>
+          <td><%= @recipe.user.full_name %></td>
+        </tr>
+        <tr class="recipe_name">
+          <th>Recipe Name: </th>
+          <td><%= @recipe.name %></td>
+        </tr>
+        <tr>
+          <th>Description: </th>
+          <td><%= @recipe.description %></td>
+        </tr>
+        <tr>
+          <th>Prep Time: </th>
+          <td><%= @recipe.prep_time %></td>
+        </tr>
+        <tr>
+          <th>Ingredients: </th>
+          <td><%= @recipe.ingredients %></td>
+        </tr>
+        <tr>
+          <th>Instructions: </th>
+          <td><%= @recipe.instructions %></td>
+        </tr> 
+        <% end %>
+      </table>
   </div>
 </div>

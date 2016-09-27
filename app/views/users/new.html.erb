@@ -12,27 +12,29 @@
 <h1>Sign Up!</h1>
 <%= form_tag '/users', method: :post do %>
 
-  <div>
+  <div class="form-group">
     <%= label_tag :first_name %>
-    <%= text_field_tag :first_name %>
+    <%= text_field_tag :first_name, class: "form-control"%>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :last_name %>
-    <%= text_field_tag :last_name %>
+    <%= text_field_tag :last_name, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :email %>
-    <%= text_field_tag :email, "", type: "email" %>
+    <%= text_field_tag :email, "", type: "email", class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :password %>
-    <%= text_field_tag :password, "", type: "password" %>
+    <%= text_field_tag :password, "", type: "password", class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :password_confirmation %>
-    <%= text_field_tag :password_confirmation, "", type: "password" %>
+    <%= text_field_tag :password_confirmation, "", type: "password", class: "form-control" %>
   </div>
+  <div> 
     <%= submit_tag "Create User" %>
+  </div>
 <% end %>
 
 

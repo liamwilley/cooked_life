@@ -19,7 +19,7 @@
           <i class="fa fa-bars"></i> Menu
         </button>
         <a class="navbar-brand page-scroll" href="#page-top">
-          <!-- <img src="../../../vendor/assets/images/background/logo.png" class="img-responsive" alt=""> -->
+          <%= image_tag "backgrounds/cookedlife_2.png", class: "my_cookedlife_logo" %>
         </a>
       </div>
     </div>
@@ -92,7 +92,6 @@
               <%= label_tag :user_search, "" %>
               <%= text_field_tag :user_search %>
               <%= submit_tag "Search", class: "dark-text btn btn-outline-dark main-search" %>
-
             </div>
           <% end %>
         </li>
@@ -112,7 +111,7 @@
 
 
               <!-- Footer -->
-    <footer class="footer" style="background-image: url(<%=image_path 'backgrounds/bg-footer.jpg'%>)"">
+    <footer class="footer solid-background">
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-4 contact-details">

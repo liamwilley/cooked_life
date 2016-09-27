@@ -1,3 +1,5 @@
+
+
 <h1>Search Results: </h1>
 
 <% if @users.any? %>
@@ -39,8 +41,10 @@
         <td><%= recipe.ingredients %></td>
         <td><%= recipe.prep_time %></td>
         <td><%= recipe.instructions %></td>
-        <td><%=link_to "Edit", "/recipes/#{recipe.id}/edit" %></td>
-        <td><%=link_to "Delete", "/recipes/#{recipe.id}", method: :delete %></td>
+        <% if current_user.id  == recipe.user.id %>
+            <td><%=link_to "Edit", "/recipes/#{recipe.id}/edit" %></td>
+            <td><%=link_to "Delete", "/recipes/#{recipe.id}", method: :delete %></td>
+          <% end %>
       </tr>
       <% end %>
     <%end%>
