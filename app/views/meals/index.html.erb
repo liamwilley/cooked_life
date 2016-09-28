@@ -1,16 +1,16 @@
-<header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
-    <div class="intro-content">
-        <!--<%= image_tag "people/profile.png", :class => "img-centered"%>-->
-        <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
-    </div>
-</header>
-<div class="row">
+<div class="row white-text" style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        <table class="table table-hover">
+    <% if params[:filter] == "current_user" %>
+    <div class="my-image-margin login-center"><h2>My Meal(s)</h2></div>
+    <% else %>
+    <div class="my-image-margin login-center"><h2>Meal(s)</h2></div>
+    <% end %>
+
+        <table class=" table">
             <tr>
-                <th>Meal Name</th>
-                <th>Recipe Author</th>
+                <th class="meal-name-title">Meal Name</th>
+                <th class="meal-name-title">Meal Author</th>
             </tr>
               <% @meals.each do |meal| %>    
                 <tr>

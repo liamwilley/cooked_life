@@ -1,43 +1,44 @@
-    <!-- Header -->
-    <header style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
-        <div class="intro-content">
-        <%= image_tag "backgrounds/cookedlife_2.png", :class => "img-centered"%>
-             <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
+<div class="row white-text" style="background-image: url(<%=image_path 'backgrounds/bg-header.jpg'%>)">
+  <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+      <h1 class="h2signupform">Sign Up!</h1>
+      <%= form_tag '/users', method: :post, class: "spacedform" do %>
+
+        <div class="form-group">
+          <%= label_tag :first_name %>
+          <%= text_field_tag :first_name, "", class: "form-control"%>
         </div>
-        <div class="scroll-down">
-            <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
+        <div class="form-group">
+          <%= label_tag :last_name %>
+          <%= text_field_tag :last_name, "", class:"form-control" %>
         </div>
-    </header>
-
-<h1>Sign Up!</h1>
-<%= form_tag '/users', method: :post do %>
-
-  <div class="form-group">
-    <%= label_tag :first_name %>
-    <%= text_field_tag :first_name, class: "form-control"%>
+        <div class="form-group">
+          <%= label_tag :email %>
+          <%= text_field_tag :email, "", type: "email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :password %>
+          <%= text_field_tag :password, "", type: "password", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :password_confirmation %>
+          <%= text_field_tag :password_confirmation, "", type: "password", class: "form-control" %>
+        </div>
+        <div class="row">
+        <div class="form-group dark-text">
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-block btn-full-width sign-up-form-button-center">Sign Up!</button>
+          </div>
+          <div class="col-sm-1">
+          </div>
+        </div>
+        </div>
+      <% end %>
   </div>
-  <div class="form-group">
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, "", type: "email", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :password %>
-    <%= text_field_tag :password, "", type: "password", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :password_confirmation %>
-    <%= text_field_tag :password_confirmation, "", type: "password", class: "form-control" %>
-  </div>
-  <div> 
-    <%= submit_tag "Create User" %>
-  </div>
-<% end %>
-
-
+</div>
 
 
 

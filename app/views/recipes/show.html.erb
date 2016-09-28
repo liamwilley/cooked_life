@@ -1,9 +1,7 @@
 <div class="row white-text" style="background-image: url(<%=image_path 'backgrounds/bg-pricing.jpg'%>)">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <div class="my-image-margin"><h1>Recipe:</h1></div>
-      <p><%= link_to "See my recipes", "/recipes?user=#{current_user.id}" %></p> 
-      <p><%= link_to "Add Recipe", "/recipes/new" %></p>
+    <div class="my-image-margin login-center"><h2><%= @recipe.name %></h2></div>
       <table class="table" style="width:100%"> 
         <% if @recipe %>
         <tr class="creator">
@@ -32,5 +30,15 @@
         </tr> 
         <% end %>
       </table>
+      <div class="row">
+        <div class="form-group dark-text">
+          <div class="col-sm-6"><a class="btn btn-block btn-full-width sign-up-form-button-center" href=<%= "/recipes?user=#{current_user.id}" %>>See My Recipes</a>
+          </div>
+          <div class="col-sm-6">
+            <a class="btn btn-block btn-full-width sign-up-form-button-center" href="/recipes/new">Add Recipe</a>
+          </div>
+        </div>
+      </div>
   </div>
+  <div class="col-md-2"></div>
 </div>

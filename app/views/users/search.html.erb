@@ -1,68 +1,73 @@
+<div class="row white-text" style="background-image: url(<%=image_path 'backgrounds/bg-footer.jpg'%>)">
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Search Results: </h1>
 
+      <% if @users.any? %>
 
-<h1>Search Results: </h1>
+        <table class="table">
+        <h3>User(s):</h3>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
 
-<% if @users.any? %>
-
-  <table class="table table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.full_name, "/users/#{user.id}" %></td>
-        <td><%= user.email %></td>
-      </tr>
-    <% end %>
-
-  </table>
-<% end %>
-
-<% if @recipes.any? %>
-    
-  <table class="table table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Ingredients</th>
-      <th>Prep Time</th>
-      <th>Instructions</th>
-    </tr>
-
-
-    
-    <% if !@recipes.empty? %>
-      <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= link_to recipe.name, "/recipes/#{recipe.id}" %></td>
-        <td><%= recipe.description %></td>
-        <td><%= recipe.ingredients %></td>
-        <td><%= recipe.prep_time %></td>
-        <td><%= recipe.instructions %></td>
-        <% if current_user.id  == recipe.user.id %>
-            <td><%=link_to "Edit", "/recipes/#{recipe.id}/edit" %></td>
-            <td><%=link_to "Delete", "/recipes/#{recipe.id}", method: :delete %></td>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.full_name, "/users/#{user.id}" %></td>
+              <td><%= user.email %></td>
+            </tr>
           <% end %>
-      </tr>
+
+        </table>
       <% end %>
-    <%end%>
-  </table>
-<% end %> 
 
-<% if @meals.any? %>
+      <% if @recipes.any? %>
+          
+        <table class="table">
+        <h3>Recipe(s):</h3>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Ingredients</th>
+            <th>Prep Time</th>
+            <th>Instructions</th>
+          </tr>
 
-  <table class="table table-hover">
-    <tr>
-      <th>Meal Name</th>
-    </tr>
 
-    <% @meals.each do |meal| %>
-      <tr>
-        <td><%= link_to meal.name, "/meals/#{meal.id}" %></td>
-      </tr>
-    <% end %>   
-  </table>
-<% end %>
+          
+          <% if !@recipes.empty? %>
+            <% @recipes.each do |recipe| %>
+            <tr>
+              <td><%= link_to recipe.name, "/recipes/#{recipe.id}" %></td>
+              <td><%= recipe.description %></td>
+              <td><%= recipe.ingredients %></td>
+              <td><%= recipe.prep_time %></td>
+              <td><%= recipe.instructions %></td>
+              <% if current_user.id  == recipe.user.id %>
+                  <td><%=link_to "Edit", "/recipes/#{recipe.id}/edit" %></td>
+                  <td><%=link_to "Delete", "/recipes/#{recipe.id}", method: :delete %></td>
+                <% end %>
+            </tr>
+            <% end %>
+          <%end%>
+        </table>
+      <% end %> 
 
+      <% if @meals.any? %>
+
+        <table class="table">
+        <h3>Meal(s):</h3>
+          <tr>
+            <th>Meal Name</th>
+          </tr>
+
+          <% @meals.each do |meal| %>
+            <tr>
+              <td><%= link_to meal.name, "/meals/#{meal.id}" %></td>
+            </tr>
+          <% end %>   
+        </table>
+      <% end %>
+  </div>
+</div>

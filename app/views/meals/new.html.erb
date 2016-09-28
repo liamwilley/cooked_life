@@ -1,54 +1,75 @@
+<div class="container">
+</div>
 
-<header style="background-image: url(<%=image_path 'menu/3.jpg'%>)">
-        <div class="intro-content">
-        <%= image_tag "people/profile.png", :class => "img-centered"%>
-             <!-- <img src="img/culinary/profile.png" class="img-responsive img-centered" alt=""> -->
+<div ng-app="app" style="background-image: url(<%=image_path 'backgrounds/bg-footer.jpg'%>)" class="white-text">
+
+  <div class="container">
+
+    <div ng-controller="recipeCtrl" ng-init="setup(<%= current_user.id %>)">
+
+
+    <div class="row new-meal-form">
+      <div class="col-md-6">
+        <h3 class="join-us white-text login-center">Meal Name: </h3>
+        <input class="new-meal-name-size dark-text" ng-model="mealName">
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-block btn-full-width" ng-click="createMeal(mealName)">Click Me To Create Meal!</button>
+      </div>
+    </div>
+
+      
+      <table ng-if="meal" class="table">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Ingredients</th>
+          <th>Prep Time</th>
+          <th>Add Recipe</th>
+        </tr>
+        <tr ng-repeat="recipe in recipes" ng-if="!recipe.added" >
+          
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.description}}</td>
+          <td>{{recipe.ingredients}}</td>
+          <td>{{recipe.prep_time}}</td>
+          <td><input type="checkbox" ng-checked="false" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
+        </tr>
+      </table>
+
+      <h2>Recipes Added to Meal</h2>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Ingredients</th>
+          <th>Prep Time</th>
+          <th>Add Recipe</th>
+        </tr>
+        <tr ng-repeat="recipe in recipes" ng-if="recipe.added" >
+          
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.description}}</td>
+          <td>{{recipe.ingredients}}</td>
+          <td>{{recipe.prep_time}}</td>
+          <td><input type="checkbox" ng-checked="true" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
+        </tr>
+      </table>
+      <div class="form-group dark-text">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <a href="/meals/{{meal.id}}" class="btn btn-block btn-full-width sign-up-form-button-center">Save My Meal</a>
+          </div>
+          <div class="col-sm-1"></div>
         </div>
-        <div class="scroll-down">
-            <a class="btn page-scroll" href="#values"><i class="fa fa-angle-down fa-fw"></i></a>
-        </div>
-    </header>
 
-<div ng-app="app">
-  <div ng-controller="recipeCtrl" ng-init="setup(<%= current_user.id %>)">
-  Meal Name: <input ng-model="mealName"><button ng-click="createMeal(mealName)">Create Meal!</button>
-    
-    <table ng-if="meal" class="table table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Ingredients</th>
-        <th>Prep Time</th>
-        <th>Add Recipe</th>
-      </tr>
-      <tr ng-repeat="recipe in recipes" ng-if="!recipe.added" >
-        
-        <td>{{recipe.name}}</td>
-        <td>{{recipe.description}}</td>
-        <td>{{recipe.ingredients}}</td>
-        <td>{{recipe.prep_time}}</td>
-        <td><input type="checkbox" ng-checked="false" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
-      </tr>
-    </table>
+<!-- 
 
-    <h2>Recipes Added to Meal</h2>
-    <table class="table table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Ingredients</th>
-        <th>Prep Time</th>
-        <th>Add Recipe</th>
-      </tr>
-      <tr ng-repeat="recipe in recipes" ng-if="recipe.added" >
-        
-        <td>{{recipe.name}}</td>
-        <td>{{recipe.description}}</td>
-        <td>{{recipe.ingredients}}</td>
-        <td>{{recipe.prep_time}}</td>
-        <td><input type="checkbox" ng-checked="true" ng-model="toggle" ng-click="toggleRecipe(recipe, toggle)"></td>
-      </tr>
-      <a ng-if="meal" href="/meals/{{meal.id}}"><button>Save Meal!</button></a>
-    </table>
+        <div class="col-md-6">
+          <a class="btn btn-block btn-full-width" href="/meals/{{meal.id}}">Save My Meal!</a>
+        </div> -->
+    </div>
+
   </div>
+
 </div>

@@ -1,7 +1,11 @@
 class MealsController < ApplicationController
 before_action :user_logged_in?
   def index
-    @meals = Meal.all
+    if params[:filter] == "current_user"
+      @meals = current_user.meals
+    else
+      @meals = Meal.all
+    end      
 
   end
 
